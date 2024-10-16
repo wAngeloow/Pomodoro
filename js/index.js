@@ -14,8 +14,8 @@ const startButton = document.querySelector("#startButton i");
 const audio = new Audio('audio/alarm.mp3');
 
 // Define os tempos em segundos para o timer Pomodoro e para o intervalo
-const pomodoroTimerInSeconds = 3; // Alterar para 1500 para 25 minutos
-const breakTimerInSeconds = 2; // Alterar para 300 para 5 minutos
+const pomodoroTimerInSeconds = 1500; // Alterar para 1500 para 25 minutos
+const breakTimerInSeconds = 300; // Alterar para 300 para 5 minutos
 
 // Tipos de timer que podem ser utilizados
 const TIMER_TYPE_POMODORO = 'POMODORO';
