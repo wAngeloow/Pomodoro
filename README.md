@@ -7,5 +7,5 @@
 - [ ] colocar pausa longa e pausa curta no DESCANSO
 - [ ] arrumar <i> que não funciona ao clicar
 - [ ] trocar som do alarme
-- [ ] colocar lista de tarefas
-- [ ] https://pomodorotimer.online/pt/
+- [ ] implementar lista de tarefas
+- [ ] fazer versão mobile
