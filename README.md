@@ -2,8 +2,10 @@
   <a href="https://wangeloow.github.io/Pomodoro/">Deploy</a>
 </div>
 
-- [] mudar vh para dvh
-- [] colocar pausa longa e pausa curta na PAUSA
-- [] arrumar <i> que não funciona ao clicar
-- [] trocar som do alarme
-- [] colocar lista de tarefas
+- [ ] mudar vh para dvh
+- [ ] mudar PAUSA para DESCANSO
+- [ ] colocar pausa longa e pausa curta no DESCANSO
+- [ ] arrumar <i> que não funciona ao clicar
+- [ ] trocar som do alarme
+- [ ] colocar lista de tarefas
+- [ ] https://pomodorotimer.online/pt/
