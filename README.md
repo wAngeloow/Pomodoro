@@ -9,3 +9,4 @@
 - [ ] trocar som do alarme
 - [ ] implementar lista de tarefas
 - [ ] fazer versão mobile
+- [ ] remover dark_secondary
