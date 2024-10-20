@@ -15,18 +15,17 @@
   --red-secondary: #bb3f3f;
   --black: #16171a;
   --gray: #25292e;
-  --gray-secondary: #25292e;
   --title-primary-color: rgb(231 226 226);
 }
 body * {
   font-family: "Roboto", sans-serif;
 }
 body {
-  height: 100vh;
+  height: 100dvh;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--gray-secondary);
+  background-color: var(--gray);
 }
 .container {
   display: flex;
@@ -62,7 +61,7 @@ body {
   padding: 4px;
 }
 
-/*BOTÕES DE POMODORO, PAUSE E CRONOMETRO*/
+/*BOTÕES DE POMODORO, DESCANSO E CRONOMETRO*/
 .card-header-buttons button {
   padding: 10px 15px; 
   border-radius: 4px;
@@ -154,4 +153,23 @@ body {
   width: 40px;
   height: 40px;
   object-fit: contain;
+}
+
+/* Media Query para dispositivos móveis */
+@media (max-width: 600px) {
+  .card {
+    padding: 10px;
+  }
+
+  .card-header h1 {
+    font-size: 18px; /* Ajustar tamanho do título */
+  }
+
+  .card-header-buttons button {
+    font-size: 10px; /* Ajuste de fonte nos botões */
+  }
+
+  .progress-bar-inner h2 {
+    font-size: 24px; /* Ajuste de fonte */
+  }
 }

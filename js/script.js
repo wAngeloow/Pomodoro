@@ -7,11 +7,12 @@ const buttonTypePomodoro = document.querySelector("#buttonTypePomodoro");
 const buttonTypeBreak = document.querySelector("#buttonTypeBreak");
 const buttonTypeTimer = document.querySelector("#buttonTypeTimer");
 
-// Seleciona o botão de iniciar o timer
-const startButton = document.querySelector("#startButton i");
+// Seleciona o botão de iniciar o timer e o ícone dentro dele
+const startButton = document.querySelector("#startButton");
+const startButtonIcon = document.querySelector("#startButton i");
 
 // Cria um objeto de áudio que tocará um alarme ao final do timer
-const audio = new Audio('audio/alarm.mp3');
+const audio = new Audio('audio/alarm.mp3'); // Verifique se o caminho do arquivo está correto
 
 // Define os tempos em segundos para o timer Pomodoro e para o intervalo
 const pomodoroTimerInSeconds = 1500; // Alterar para 1500 para 25 minutos
@@ -48,25 +49,31 @@ const startTimer = () => {
     }
 
     isTimerRunning = true;
-    startButton.classList.remove("fa-play");
-    startButton.classList.add("fa-pause");
+    startButtonIcon.classList.remove("fa-play");
+    startButtonIcon.classList.add("fa-pause");
 
     progressInterval = setInterval(() => {
-        if (pomodoroType === TIMER_TYPE_POMODORO || pomodoroType === TIMER_TYPE_BREAK) {
+        if (timerValue > 0) { // Verifica se o timer ainda está acima de 0
             timerValue--;
-            if (timerValue < 0) {
-                audio.play();
-                if (pomodoroType === TIMER_TYPE_POMODORO) {
-                    pomodoroType = TIMER_TYPE_BREAK;
-                    timerValue = breakTimerInSeconds;
-                } else {
-                    pomodoroType = TIMER_TYPE_POMODORO;
-                    timerValue = pomodoroTimerInSeconds;
-                }
-            }
-        } else if (pomodoroType === TIMER_TYPE_TIMER) {
-            timerValue++;
         }
+
+        if (timerValue <= 0) {
+            audio.play(); // Toca o som ao final do timer
+            if (pomodoroType === TIMER_TYPE_POMODORO) {
+                pomodoroType = TIMER_TYPE_BREAK;
+                timerValue = breakTimerInSeconds; // Reinicia para o tempo de descanso
+                
+                // Simula um clique no botão de descanso
+                buttonTypeBreak.click(); // Muda o tipo de timer para descanso
+            } else if (pomodoroType === TIMER_TYPE_BREAK) {
+                // Para o timer ao final do descanso e toca o som
+                audio.play(); // Toca o som ao final do descanso
+                stopTimer(); 
+                // Simula um clique no botão de Pomodoro
+                buttonTypePomodoro.click(); // Muda o tipo de timer para Pomodoro
+            }
+        }
+        
 
         setInfoCircularProgressBar();
     }, 1000);
@@ -76,8 +83,8 @@ const startTimer = () => {
 const stopTimer = () => {
     clearInterval(progressInterval);
     isTimerRunning = false;
-    startButton.classList.remove("fa-pause");
-    startButton.classList.add("fa-play");
+    startButtonIcon.classList.remove("fa-pause");
+    startButtonIcon.classList.add("fa-play");
 }
 
 // Reinicializa o timer de acordo com o tipo atual
@@ -96,8 +103,8 @@ const resetTimer = () => {
 
     setInfoCircularProgressBar();
 
-    startButton.classList.remove("fa-pause");
-    startButton.classList.add("fa-play");
+    startButtonIcon.classList.remove("fa-pause");
+    startButtonIcon.classList.add("fa-play");
 }
 
 // Atualiza a barra de progresso circular e o título da página
@@ -123,5 +130,18 @@ const setPomodoroType = (type) => {
     resetTimer();
 }
 
-// Adiciona um evento ao botão de iniciar o timer
-startButton.addEventListener('click', startTimer);
+// Adiciona eventos ao botão de iniciar o timer e ao ícone dentro dele
+const handleStartButtonClick = () => {
+    startTimer();
+};
+
+startButton.addEventListener('click', handleStartButtonClick);
+startButtonIcon.addEventListener('click', (event) => {
+    event.stopPropagation();
+    handleStartButtonClick();
+});
+
+// Adiciona eventos aos botões de tipo de timer
+buttonTypePomodoro.addEventListener('click', () => setPomodoroType(TIMER_TYPE_POMODORO));
+buttonTypeBreak.addEventListener('click', () => setPomodoroType(TIMER_TYPE_BREAK));
+buttonTypeTimer.addEventListener('click', () => setPomodoroType(TIMER_TYPE_TIMER));

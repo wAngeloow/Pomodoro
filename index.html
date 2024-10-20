@@ -5,74 +5,41 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
     <link rel="icon" href="img/icon.webp">
-
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
     <title>Pomodoro</title>
-
 </head>
 
 <body>
-
     <div class="container">
-
         <div class="card">
-
             <div class="card-header">
                 <h1>Pomodoro</h1>
                 <div class="card-header-buttons">
-
-                    <button id="buttonTypePomodoro"
-                            class="active" 
-                            onclick="setPomodoroType(TIMER_TYPE_POMODORO);">
-                            Pomodoro
-                    </button>
-
-                    <button id="buttonTypeBreak"
-                            onclick="setPomodoroType(TIMER_TYPE_BREAK);">
-                        Pausa
-                    </button>
-                    
-                    <button id="buttonTypeTimer"
-                            onclick="setPomodoroType(TIMER_TYPE_TIMER);">
-                        Cronômetro
-                    </button>
-
+                    <button id="buttonTypePomodoro" class="active" onclick="setPomodoroType(TIMER_TYPE_POMODORO);" aria-pressed="true">Pomodoro</button>
+                    <button id="buttonTypeBreak" onclick="setPomodoroType(TIMER_TYPE_BREAK);" aria-pressed="false">Descanso</button>
+                    <button id="buttonTypeTimer" onclick="setPomodoroType(TIMER_TYPE_TIMER);" aria-pressed="false">Cronômetro</button>
                 </div>
             </div>
 
             <div class="card-body">
-
                 <div id="circularProgressBar" class="progress-bar">
                     <div class="progress-bar-inner">
-                        <h2 class="progress-value">25:00</h2>
+                        <h2 class="progress-value" aria-live="polite">25:00</h2>
                     </div>
                 </div>
-
             </div>
 
             <div class="card-footer">
-                <button class="btn-danger" onclick="stopTimer();">
-                    <i class="fas fa-stop"></i>
-                </button>
-                <button id="startButton" class="btn-success" onclick="startTimer();">
-                    <i class="fas fa-play"></i>
-                </button>
-                <button onclick="resetTimer();">
-                    <i class="fas fa-undo"></i>
-                </button>
+                <button class="btn-danger" onclick="stopTimer();" aria-label="Parar Timer"><i class="fas fa-stop"></i></button>
+                <button id="startButton" class="btn-success" onclick="startTimer();" aria-label="Iniciar Timer"><i class="fas fa-play"></i></button>
+                <button onclick="resetTimer();" aria-label="Reiniciar Timer"><i class="fas fa-undo"></i></button>
             </div>
-
         </div>
-
     </div>
 
-    <script src="js/index.js"></script>
-
+    <script src="js/script.js"></script>
 </body>
 
 </html>
