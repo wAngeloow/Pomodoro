@@ -30,7 +30,7 @@ Siga os passos abaixo para rodar o projeto localmente:
    - Clique em **Code → Download ZIP** e extraia a pasta, ou
    - Clone o repositório com Git:
      ```bash
-     git clone https://github.com/wAngeloow/pomodoro.git
+     git clone https://github.com/angelodonada/pomodoro.git
      ```
 
 2. Abra o projeto no VS Code (ou outro editor de sua preferência).
@@ -54,7 +54,7 @@ Siga os passos abaixo para rodar o projeto localmente:
 <br>
 
 <div align="center">
-  <a href="https://wangeloow.github.io/pomodoro/">
+  <a href="https://angelodonada.github.io/pomodoro/">
     <button>Deploy</button>
   </a>
 </div>
